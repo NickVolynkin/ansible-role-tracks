@@ -1,0 +1,16 @@
+---
+- name: Make the site.yml configuration
+  template:
+    src: site.yml
+    dest: "{{ tracks_home_directory }}/tracks-{{ tracks_version }}/config"
+    owner: root
+    group: root
+    mode: 0664
+
+- name: Make the database.yml configuration
+  template:
+    src: database.yml
+    dest: "{{ tracks_home_directory }}/tracks-{{ tracks_version }}/config"
+    owner: root
+    group: root
+    mode: 0664

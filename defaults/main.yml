@@ -2,7 +2,42 @@
 # defaults file for tracks
 workspace: /root
 
+
+
 tracks_install_from_source: false
 tracks_home_directory: /srv/tracks
 tracks_download_url: https://github.com/TracksApp/tracks/archive/v2.3.0.tar.gz
 tracks_version: 2.3.0
+
+#site.yaml
+
+tracks_secure_cookies: yes
+tracks_open_signups: no
+tracks_admin_email:
+
+#database.yaml
+tracks_database_defaults:
+  development:
+    name: tracks
+    adapter: mysql2
+    host: localhost
+    encoding: utf8
+    username: root
+    password:
+  production:
+    name: tracks
+    adapter: mysql2
+    host: localhost
+    encoding: utf8
+    username: root
+    password:
+  test: &TEST
+    adapter: mysql2
+    database: tracks_test
+    username: root
+    encoding: utf8
+  cucumber:
+    <<: *TEST
+
+
+

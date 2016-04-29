@@ -11,3 +11,7 @@
 
 - include: install-from-source.yml
   when: tracks_install_from_source == true
+
+# Configure Tracks
+- include: configure.yml
+
