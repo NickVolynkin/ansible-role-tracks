@@ -1,0 +1,19 @@
+---
+# install Tracks with git
+
+- name: make directory for tracks
+  file:
+    path: "{{tracks_home_directory}}"
+    state: directory
+
+
+- name: Download tracks.
+  get_url:
+    url: "{{ tracks_download_url }}"
+    dest: "{{ workspace }}/tracks-{{ tracks_version }}.tar.gz"
+
+- name: Unpack tracks
+  unarchive:
+    src: "{{ workspace }}/tracks-{{ tracks_version }}.tar.gz"
+    dest: "{{ tracks_home_directory }}/"
+    copy: no

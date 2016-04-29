@@ -1,0 +1,17 @@
+---
+# tasks file for tracks
+
+# Include variables and define needed variables
+#- name: Include OS-specific variables.
+#  include_vars: "{{ ansible_os_family }}.yml"
+
+# Include installation tasks.
+- include: install-from-archive.yml
+  when: tracks_install_from_source == false
+
+- include: install-from-source.yml
+  when: tracks_install_from_source == true
+
+# Configure Tracks
+- include: configure.yml
+
